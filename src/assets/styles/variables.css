@@ -1,0 +1,11 @@
+
+:root {
+  --night-mode-color: rgb(51, 49, 49);
+  --blue-color: #3058e8;
+  --green-color: #068720;
+  --grey-color: #696c6c;
+  --red-color: #e51d1a;
+  --white-color: #ffff;
+  --black-color: rgb(0, 0, 0);
+  --modal-screen-bckg: rgba(0, 0, 0, 0.5);
+}
