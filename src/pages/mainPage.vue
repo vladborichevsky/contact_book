@@ -45,7 +45,7 @@
 
 
 <script>
-  import { mapState, mapMutations } from 'vuex' 
+  import { mapState } from 'vuex' 
 
   import AddNewContactBlock from '@/components/AddNewContactBlock.vue'
   import ContactsBlock from '@/components/ContactsBlock.vue'
@@ -88,10 +88,6 @@
     },
 
     methods: {
-      ...mapMutations({
-        setNightMode: 'setNightMode'
-      }),
-
       // главная функция, которая добавляет новый объект (контакт) в массив
       addContactFunc(inputName, inputPhoneNumber, inputCity) {
         // проверка, чтобы нельзя было добавлять контакты с одинаковым именем
@@ -206,13 +202,6 @@
       // как только страница загрузилась, мы проверяем в localStorage переменную localStorageList. Если в ней есть массив, то записываем его (этот самый массив) в наш главный массив объектов с контактами contactListArr
       if (JSON.parse(localStorage.getItem('localStorageList'))) {
         this.contactListArr = JSON.parse(localStorage.getItem('localStorageList')) 
-      }
-
-      // проверяем в localStorage ночной режим
-      if (localStorage.getItem('nightMode') == 'true') {
-        this.setNightMode(true)
-      } else if (localStorage.getItem('nightMode') == 'false') {
-        this.setNightMode(false)
       }
 
       // при нажатии Esc все модальные окна на странице будут закрываться
