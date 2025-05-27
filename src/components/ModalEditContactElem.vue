@@ -1,65 +1,64 @@
 <template>
   <div class="edit_input_wrapper">
-    <p class="edit_input_notation"> {{ notation }}:</p>
+    <p class="edit_input_notation">{{ notation }}:</p>
     <my-input-for-modal
       :modelValue="modelValue"
       @updateModelValue="updateModelValue"
       v-imask="phoneNumberMask"
       @accept="onAccept"
-      @complete="onComplete"/>
+      @complete="onComplete"
+    />
   </div>
 </template>
 
 <script>
-  export default {
-    props: {
-      notation: {
-        type: String,
-        required: true
-      },
-
-      phoneNumberMask: {
-        type: Object,
-        required: false
-      },
-
-      modelValue: {
-        type: [ String, Number ],
-        required: true
-      }
+export default {
+  props: {
+    notation: {
+      type: String,
+      required: true,
     },
 
-    emits: [
-      'update:modelValue', 'onAccept', 'onComplete'
-    ],
+    phoneNumberMask: {
+      type: Object,
+      required: false,
+    },
 
-    methods: {
-      updateModelValue(value) {
-        this.$emit('update:modelValue', value)
-      },
+    modelValue: {
+      type: [String, Number],
+      required: true,
+    },
+  },
 
-      onAccept() {
-        this.$emit('onAccept')
-      },
+  emits: ['update:modelValue', 'onAccept', 'onComplete'],
 
-      onComplete() {
-        this.$emit('onComplete')
-      }
-    }
-  }
+  methods: {
+    updateModelValue(value) {
+      this.$emit('update:modelValue', value)
+    },
+
+    onAccept() {
+      this.$emit('onAccept')
+    },
+
+    onComplete() {
+      this.$emit('onComplete')
+    },
+  },
+}
 </script>
 
 <style scoped>
-	.edit_input_wrapper {
-		width: 50%;
-		display: flex;
-		flex-direction: column;
-		margin: 5px 0 5px 0;
-	}
+.edit_input_wrapper {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0 5px 0;
+}
 
-	.edit_input_notation {
-		color: var(--black-color);
-		font-size: 14px;
-    font-weight: 600;
-	}
+.edit_input_notation {
+  color: var(--black-color);
+  font-size: 14px;
+  font-weight: 600;
+}
 </style>

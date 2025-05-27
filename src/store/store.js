@@ -1,9 +1,10 @@
+import {
+  createStore
+} from "vuex"
 
-import { createStore } from "vuex"
+export default createStore({
 
-export default createStore( {
-
-  state: () => ( { 
+  state: () => ({
     nightMode: false, // переменная, отвечающая за ночной режим
   }),
 
@@ -12,5 +13,5 @@ export default createStore( {
       state.nightMode = newValue
     }
   }
-  
+
 })
